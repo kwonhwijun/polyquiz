@@ -9,8 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "framer-motion": "^12.23.26",
     "next": "16.1.1",
+    "posthog-js": "^1.311.0",
     "react": "19.2.3",
+    "react-confetti": "^6.4.0",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
