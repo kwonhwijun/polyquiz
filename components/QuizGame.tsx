@@ -224,7 +224,7 @@ export default function QuizGame({ data }: Props) {
                     transition={{ delay: idx * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="bg-white px-4 py-3 rounded-xl shadow-md border-2 border-blue-300 font-bold text-gray-800 text-center min-w-[120px]">
+                    <div className="bg-white px-4 py-3 md:px-4 md:py-3 rounded-xl shadow-md border-2 border-blue-300 font-bold text-sm md:text-base text-gray-800 text-center min-w-[100px] md:min-w-[120px]">
                       {party}
                     </div>
                     {idx < currentCandidate.partyPath.length - 1 && (
