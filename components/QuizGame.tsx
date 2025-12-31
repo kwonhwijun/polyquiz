@@ -212,27 +212,37 @@ export default function QuizGame({ data }: Props) {
 
             {/* 정당 이동 경로 */}
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6 mb-8">
-              <h3 className="text-lg font-bold text-gray-700 mb-4 text-center">
+            <h3 className="text-lg font-bold text-gray-700 mb-4 text-center">
                 🗳️ 정당 이동 경로
-              </h3>
-              <div className="flex flex-wrap items-center justify-center gap-3">
+            </h3>
+            {/* 모바일: 2줄, 데스크톱: 1줄 */}
+            <div className="grid grid-cols-2 md:flex md:flex-wrap items-center justify-center gap-2 md:gap-3">
                 {currentCandidate.partyPath.map((party, idx) => (
-                  <motion.div
+                <motion.div
                     key={idx}
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className="flex items-center gap-3"
-                  >
-                    <div className="bg-white px-4 py-3 md:px-4 md:py-3 rounded-xl shadow-md border-2 border-blue-300 font-bold text-sm md:text-base text-gray-800 text-center min-w-[100px] md:min-w-[120px]">
-                      {party}
+                    className="flex items-center gap-2 md:gap-3"
+                >
+                    <div className="bg-white px-2 py-1.5 md:px-4 md:py-3 rounded-lg md:rounded-xl shadow-md border-2 border-blue-300 font-bold text-xs md:text-base text-gray-800 text-center w-full md:w-auto md:min-w-[120px]">
+                    {party}
                     </div>
+                    {/* 모바일에서는 마지막이 아니면 화살표, 데스크톱은 항상 */}
                     {idx < currentCandidate.partyPath.length - 1 && (
-                      <div className="text-3xl text-blue-500 font-bold">→</div>
+                    <div className="text-lg md:text-3xl text-blue-500 font-bold hidden md:block">
+                        →
+                    </div>
                     )}
-                  </motion.div>
+                    {/* 모바일: 줄바꿈 표시 */}
+                    {idx < currentCandidate.partyPath.length - 1 && idx % 2 === 1 && (
+                    <div className="md:hidden text-lg text-blue-500 font-bold w-full text-center">
+                        ↓
+                    </div>
+                    )}
+                </motion.div>
                 ))}
-              </div>
+            </div>
             </div>
 
             {/* 정답 입력 폼 */}

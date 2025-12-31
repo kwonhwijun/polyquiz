@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "framer-motion": "^12.23.26",
     "next": "16.1.1",
     "posthog-js": "^1.311.0",
